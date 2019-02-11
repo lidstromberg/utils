@@ -57,3 +57,15 @@ func EmailIsValid(emailAddress string) bool {
 	//reject if this is an invalid email
 	return validEmail.MatchString(emailAddress)
 }
+
+//DrainFn drains a channel until it is closed
+func DrainFn(c <-chan interface{}) {
+	for {
+		select {
+		case _, ok := <-c:
+			if ok == false {
+				return
+			}
+		}
+	}
+}
