@@ -100,12 +100,9 @@ func ToAvroFile(ctx context.Context, filename, compressiontype string, codec *go
 		return nil
 	}(flout)
 
-	//create a buffered writer over the file
-	wdr := bufio.NewWriter(flout)
-
 	//create the writer config
 	cfg := goavro.OCFConfig{
-		W:               wdr,
+		W:               flout,
 		Codec:           codec,
 		CompressionName: compressiontype,
 	}
