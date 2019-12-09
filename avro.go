@@ -7,7 +7,7 @@ import (
 	"os"
 	"sync"
 
-	"github.com/linkedin/goavro"
+	goavro "github.com/linkedin/goavro/v2"
 )
 
 //FromAvroFile sends back a map of content from an avro file
